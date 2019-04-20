@@ -22,5 +22,5 @@ variable "route_table_tags" {type = "list"}
 #End Route table block
 
 #Internet access block
-variable "internet_access_destination_cidr_block" {}
+variable "internet_access_destination_cidr_block" {type = "list"}
 #End Internet access block
