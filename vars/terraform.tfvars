@@ -24,5 +24,5 @@ route_table_tags =["ROUTETABLE-TUNG"]
 #End Route table block
 
 #Internet access block
-internet_access_destination_cidr_block =["0.0.0.0/0"]
+internet_access_destination_cidr_block = "0.0.0.0/0"
 #End Internet access block
