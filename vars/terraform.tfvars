@@ -9,7 +9,8 @@ vpc_tags                 = "PC-TUNG"
 #End VPC block
 
 #Subnet block
-subnet_vpc_id_cidrblock        = "10.0.1.0/24"
+count                          = 2
+subnet_vpc_id_cidrblock        = ["10.0.1.0/24","10.0.2.0/24"]
 subnet_map_public_ip_on_launch = "true"
 subnet_availability_zone       = "ap-southeast-1a"
 subnet_tags                    = "SUBNET-TUNG"

@@ -15,7 +15,8 @@ resource "aws_vpc" "My_VPC" {
 
 #Create subnet
 resource "aws_subnet" "My_VPC_Subnet" {
-  cidr_block              = "${var.subnet_vpc_id_cidrblock}"
+  count                   = "${var.count}"
+  cidr_block              = "${element(var.subnet_vpc_id_cidrblock , count.index)}"  #${element(var.tags, count.index)}
   vpc_id                  = "${aws_vpc.My_VPC.id}"
   map_public_ip_on_launch = "${var.subnet_map_public_ip_on_launch}"
   availability_zone       = "${var.subnet_availability_zone}"

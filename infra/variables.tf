@@ -7,7 +7,8 @@ variable "vpc_tags" {type = "string"}
 #End VPC block
 
 #Subnet block
-variable "subnet_vpc_id_cidrblock" {}
+variable "count" {}
+variable "subnet_vpc_id_cidrblock" {type = "list"}
 variable "subnet_map_public_ip_on_launch" {}
 variable "subnet_availability_zone" {}
 variable "subnet_tags" {type = "string"}
