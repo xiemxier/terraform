@@ -51,7 +51,6 @@ resource "aws_route" "My_VPC_internet_access" {
 
 #Associate route table with subnet
 resource "aws_route_table_association" "My_VPC_associate" {
-  vpc_id         = "${aws_vpc.My_VPC.id}"
   route_table_id = "${aws_route_table.My_VPC_route_table.id}"
   subnet_id      = "${aws_subnet.My_VPC_Subnet.id}"
 }
