@@ -52,6 +52,7 @@ resource "aws_route" "My_VPC_internet_access" {
 
 #Associate route table with subnet
 resource "aws_route_table_association" "My_VPC_associate" {
+  count = "${length(var.subnet_vpc_id_cidrblock)}"
   route_table_id = "${aws_route_table.My_VPC_route_table.id}"
-  subnet_id      = "${aws_subnet.My_VPC_Subnet.id}"
+  subnet_id      = "${element (aws_subnet.My_VPC_Subnet.id, count.index)}"
 }
