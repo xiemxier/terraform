@@ -9,7 +9,7 @@ resource "aws_vpc" "My_VPC" {
   instance_tenancy     = "${var.vpc_instance_tenancy}"
   enable_dns_support   = "${var.vpc_enable_dns_support}"
   enable_dns_hostnames = "${var.vpc_enable_dns_hostnames}"
-  tags                 =  {Name = "${var.vpc_tags}"}
+  tags                 =  {"Name" = "${var.vpc_tags}"}
 }
 #End Create VPC
 
