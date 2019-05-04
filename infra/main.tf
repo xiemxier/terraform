@@ -55,8 +55,8 @@ module "sg" {
   environment        = "testing"
   vpc_id             = "${module.aws_vpc.vpc_id}"
   inbound_cidr_blocks      = {
-    "0" = ["${module.aws_vpc.aws_subnet_id[0]}", "27017","27017","tcp"]
-    "1" = ["${module.aws_vpc.aws_subnet_id[1]}", "27017","27017","tcp"]
+    "0" = ["10.1.3.0/24", "27017","27017","tcp"]
+    "1" = ["10.1.4.0/24", "27017","27017","tcp"]
 
     "2" = ["${chomp(data.http.workstation_ip.body)}/32", "22", "22", "tcp" ]
 
