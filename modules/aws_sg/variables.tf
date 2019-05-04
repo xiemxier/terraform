@@ -17,3 +17,4 @@ variable "tags" {
 }
 variable "number_of_ingress_source_security_group_id" {}
 variable "number_of_egress_source_security_group_id" {}
+variable "vpc_id" {}
