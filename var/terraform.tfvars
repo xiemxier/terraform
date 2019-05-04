@@ -31,7 +31,7 @@ internet_access_destination_cidr_block = "0.0.0.0/0"
 
 #Start of EC2 Instances
 count_instance = 2
-aws_ami_id = "ami-012799a835ac6a1d0"
+aws_ami_id = "ami-76144b0a"
 instance_type = "t2.micro"
 key_name = "tony-key"
 iam-role = ""
