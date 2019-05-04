@@ -36,4 +36,10 @@ instance_type = "t2.micro"
 key_name = "tony-key"
 iam-role = ""
 user_data = ""
+
+tags = ""
+volume_size = "30"
+volume_type = "gp2"
+delete_on_termination = "true"
+
 #End of EC2 Instances
