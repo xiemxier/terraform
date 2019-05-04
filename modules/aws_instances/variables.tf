@@ -3,7 +3,7 @@
 variable "count" {}
 variable "aws_ami_id" {}
 variable "instance_type" {}
-variable "subnet_id" {}
+variable "subnet_id" {type = "list"}
 variable "key_name" {}
 variable "vpc_security_group_ids" {type = "list"}
 variable "iam-role" {}
