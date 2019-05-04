@@ -32,7 +32,7 @@ module "aws_instance" {
   count                   = "${var.count_instance}"
   aws_ami_id              = "${var.aws_ami_id}"
   instance_type           = "${var.instance_type}"
-  subnet_id               = "${element(module.aws_vpc.aws_subnet_id, count.index )}"
+  subnet_id               = "${module.aws_vpc.aws_subnet_id}"
   key_name                = "${var.key_name}"
   vpc_security_group_ids  = "${var.vpc_security_group_ids}"
   iam-role                = "${var.iam-role}"
