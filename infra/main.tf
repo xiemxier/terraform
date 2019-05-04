@@ -26,13 +26,13 @@ internet_access_destination_cidr_block = "${var.internet_access_destination_cidr
 }
 
 #aws instances
-module "example" {
+module "aws_instance" {
   source                  = "../modules/aws_instances"
 
   count                   = "${var.count_instance}"
   aws_ami_id              = "${var.aws_ami_id}"
   instance_type           = "${var.instance_type}"
-  subnet_id               = "${module.aws_vpc.aws_subnet_id}"
+  subnet_id               = "${element(module.aws_vpc.aws_subnet_id, count.index )}"
   key_name                = "${var.key_name}"
   vpc_security_group_ids  = "${var.vpc_security_group_ids}"
   iam-role                = "${var.iam-role}"
