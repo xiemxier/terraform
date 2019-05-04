@@ -34,7 +34,7 @@ module "aws_instance" {
   instance_type           = "${var.instance_type}"
   subnet_id               = "${module.aws_vpc.aws_subnet_id}"
   key_name                = "${var.key_name}"
-  vpc_security_group_ids  = "${module.sg.security_group_id}"
+  vpc_security_group_ids  = ["${module.sg.security_group_id}"]
   iam-role                = "${var.iam-role}"
 #volume
   volume_size             = "${var.volume_size}"
