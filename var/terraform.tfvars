@@ -33,14 +33,7 @@ internet_access_destination_cidr_block = "0.0.0.0/0"
 count_instance = 2
 aws_ami_id = "ami-012799a835ac6a1d0"
 instance_type = "t2.micro"
-key_name = "console_mytuan"
-#vpc_security_group_ids = ["sg-03dd57d950c69e910"]
+key_name = "tony-key"
 iam-role = ""
 user_data = ""
-
-tags = ""
-volume_size = "30"
-volume_type = "gp2"
-delete_on_termination = "true"
-
 #End of EC2 Instances
