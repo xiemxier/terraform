@@ -34,7 +34,7 @@ count_instance = 2
 aws_ami_id = "ami-012799a835ac6a1d0"
 instance_type = "t2.micro"
 key_name = "console_mytuan"
-vpc_security_group_ids = ["sg-03dd57d950c69e910"]
+#vpc_security_group_ids = ["sg-03dd57d950c69e910"]
 iam-role = ""
 user_data = ""
 
