@@ -11,7 +11,7 @@ vpc_tags                 = "PC-TUAN"
 
 #Subnet block
 count_subnet                         = 2
-subnet_vpc_id_cidrblock        = ["10.0.3.0/24","10.0.4.0/24"]
+subnet_vpc_id_cidrblock        = ["10.1.3.0/24","10.1.4.0/24"]
 subnet_map_public_ip_on_launch = "true"
 subnet_availability_zone       = ["ap-southeast-1a","ap-southeast-1b"]
 subnet_tags                    = "SUBNET-TUAN"
