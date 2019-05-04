@@ -30,7 +30,7 @@ internet_access_destination_cidr_block = "0.0.0.0/0"
 #End Internet access block
 
 #Start of EC2 Instances
-count_instance = "1"
+count_instance = 2
 aws_ami_id = "ami-012799a835ac6a1d0"
 instance_type = "t2.micro"
 #subnet_id = ["subnet-01d18a1bbe797fb95"]
