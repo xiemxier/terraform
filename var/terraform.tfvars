@@ -35,7 +35,7 @@ aws_ami_id = "ami-012799a835ac6a1d0"
 instance_type = "t2.micro"
 #subnet_id = ["subnet-01d18a1bbe797fb95"]
 key_name = "console_mytuan"
-vpc_security_group_ids = ["sg-0a97a1d9147a5dae5"]
+vpc_security_group_ids = ["sg-039ac6e2ddcb1f64f"]
 iam-role = ""
 user_data = ""
 
