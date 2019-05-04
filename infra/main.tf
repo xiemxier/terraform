@@ -42,3 +42,48 @@ module "aws_instance" {
   delete_on_termination   = "${var.delete_on_termination}"
 
 }
+##security group
+#get ip address
+data "http" "workstation_ip" {
+  url = "http://icanhazip.com"
+}
+####
+module "sg" {
+  source             = "../modules/aws_sg"
+  security_groupname = "sg_testing_module"
+  description        = "allow traffic from sg-alb"
+  environment        = "testing"
+  vpc_id             = "${module.aws_vpc.vpc_id}"
+  inbound_cidr_blocks      = {
+    "0" = ["${module.aws_vpc.aws_subnet_id[0]}", "27017","27017","tcp"]
+    "1" = ["${module.aws_vpc.aws_subnet_id[1]}", "27017","27017","tcp"]
+
+    "6" = ["${chomp(data.http.workstation_ip.body)}/32", "22", "22", "tcp" ]
+
+  }
+  outbound_cidr_blocks = {
+    "0"    = ["0.0.0.0/0","0","0","-1"]
+  }
+    ###source security group id###
+  number_of_ingress_source_security_group_id = 0
+  inbound_source_security_group = {}
+  number_of_egress_source_security_group_id = 0
+  outbound_source_security_group = {}
+
+  tags     = {
+    "Name" = "sg-test"
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
