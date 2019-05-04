@@ -58,7 +58,7 @@ module "sg" {
     "0" = ["${module.aws_vpc.aws_subnet_id[0]}", "27017","27017","tcp"]
     "1" = ["${module.aws_vpc.aws_subnet_id[1]}", "27017","27017","tcp"]
 
-    "6" = ["${chomp(data.http.workstation_ip.body)}/32", "22", "22", "tcp" ]
+    "2" = ["${chomp(data.http.workstation_ip.body)}/32", "22", "22", "tcp" ]
 
   }
   outbound_cidr_blocks = {
