@@ -7,9 +7,15 @@ variable "key_name" {}
 #variable "vpc_security_group_ids" {type = "list"}
 variable "iam-role" {}
 variable "instance_tags" {type = "list"}
+#root volume
 variable "volume_size" {}
 variable "volume_type" {}
 variable "delete_on_termination" {}
+#ebs volume
+variable "device_name" {}
+variable "ebs_volume_size" {}
+variable "ebs_volume_type" {}
+variable "ebs_delete_on_termination" {}
 #End of AWS EC2 Instances
 
 #----

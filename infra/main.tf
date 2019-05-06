@@ -27,20 +27,24 @@ internet_access_destination_cidr_block = "${var.internet_access_destination_cidr
 
 #aws instances
 module "aws_instance" {
-  source                  = "../modules/aws_instances"
-  instance_tag           = "${var.instance_tags}"
-  count                   = "${var.count_instance}"
-  aws_ami_id              = "${var.aws_ami_id}"
-  instance_type           = "${var.instance_type}"
-  subnet_id               = "${module.aws_vpc.aws_subnet_id}"
-  key_name                = "${var.key_name}"
-  vpc_security_group_ids  = ["${module.sg.security_group_id}"]
-  iam-role                = "${var.iam-role}"
-#volume
-  volume_size             = "${var.volume_size}"
-  volume_type             = "${var.volume_type}"
-  delete_on_termination   = "${var.delete_on_termination}"
-
+  source                    = "../modules/aws_instances"
+  instance_tag              = "${var.instance_tags}"
+  count                     = "${var.count_instance}"
+  aws_ami_id                = "${var.aws_ami_id}"
+  instance_type             = "${var.instance_type}"
+  subnet_id                 = "${module.aws_vpc.aws_subnet_id}"
+  key_name                  = "${var.key_name}"
+  vpc_security_group_ids    = ["${module.sg.security_group_id}"]
+  iam-role                  = "${var.iam-role}"
+#root volume
+  volume_size               = "${var.volume_size}"
+  volume_type               = "${var.volume_type}"
+  delete_on_termination     = true
+#ebs volume
+  ebs_delete_on_termination = true
+  ebs_volume_size           = "${var.ebs_volume_size}"
+  ebs_volume_type           = "${var.ebs_volume_type}"
+  device_name               = "${var.device_name}"
 }
 ##security group
 #get ip address
@@ -49,16 +53,16 @@ data "http" "workstation_ip" {
 }
 ####
 module "sg" {
-  source             = "../modules/aws_sg"
-  security_groupname = "sg_testing_module"
-  description        = "allow traffic from sg-alb"
-  environment        = "testing"
-  vpc_id             = "${module.aws_vpc.vpc_id}"
-  inbound_cidr_blocks      = {
-    "0" = ["10.1.3.0/24", "443","443","tcp"]
-    "1" = ["10.1.4.0/24", "443","443","tcp"]
-    "2" = ["${chomp(data.http.workstation_ip.body)}/32", "22", "22", "tcp" ]
-    "3" = ["27.74.249.220/32", "22", "22", "tcp"]
+  source                    = "../modules/aws_sg"
+  security_groupname        = "sg_testing_module"
+  description               = "allow traffic from sg-alb"
+  environment               = "testing"
+  vpc_id                    = "${module.aws_vpc.vpc_id}"
+  inbound_cidr_blocks       = {
+    "0" = ["0.0.0.0/0", "443","443","tcp"]
+    "1" = ["${chomp(data.http.workstation_ip.body)}/32", "22", "22", "tcp" ]
+    "2" = ["27.74.249.220/32", "22", "22", "tcp"]
+    "3" = ["0.0.0.0/0", "21","21","tcp"]
   }
   outbound_cidr_blocks = {
     "0"    = ["0.0.0.0/0","0","0","-1"]
@@ -70,9 +74,8 @@ module "sg" {
   outbound_source_security_group = {}
 
   tags     = {
-    "Name" = "sg-test"
+    "Name" = "sg-soulblade"
   }
-
 }
 
 
