@@ -16,10 +16,10 @@ resource "aws_instance" "test" {
     delete_on_termination = "${var.delete_on_termination}"
   }
 
-    ebs_block_device {
-    device_name           = "${var.device_name}"
-    volume_size           = "${var.ebs_volume_size}"
-    volume_type           = "${var.ebs_volume_type}"
-    delete_on_termination = "${var.ebs_delete_on_termination}"
+#    ebs_block_device {
+#    device_name           = "${var.device_name}"
+#    volume_size           = "${var.ebs_volume_size}"
+#    volume_type           = "${var.ebs_volume_type}"
+#    delete_on_termination = "${var.ebs_delete_on_termination}"
   }
 }
