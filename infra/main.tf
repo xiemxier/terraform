@@ -36,7 +36,7 @@ module "aws_instance" {
   key_name                  = "${var.key_name}"
   vpc_security_group_ids    = ["${module.sg.security_group_id}"]
   iam_role                  = "${var.iam_role}"
-  user_data                 = "${data.template_file.user-data}"
+  user_data                 = "${data.template_file.user-data.rendered}"
 
 #root volume
   volume_size               = "${var.volume_size}"
