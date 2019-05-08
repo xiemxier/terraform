@@ -44,8 +44,8 @@ volume_size = "30"
 volume_type = "gp2"
 delete_on_termination = "true"
 ##ebs volume
-#device_name = "/dev/sdb"
-#ebs_volume_size = "20"
-#ebs_volume_type = "gp2"
-#ebs_delete_on_termination = "true"
+device_name = "/dev/sdb"
+ebs_volume_size = "20"
+ebs_volume_type = "gp2"
+ebs_delete_on_termination = "true"
 #End of EC2 Instances

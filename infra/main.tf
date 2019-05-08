@@ -42,11 +42,11 @@ module "aws_instance" {
   volume_type               = "${var.volume_type}"
   delete_on_termination     = "${var.delete_on_termination}"
 
-##ebs volume
-#  device_name               = "${var.device_name}"
-#  ebs_delete_on_termination = "${var.ebs_delete_on_termination}"
-#  ebs_volume_size           = "${var.ebs_volume_size}"
-#  ebs_volume_type           = "${var.ebs_volume_type}"
+#ebs volume
+  device_name               = "${var.device_name}"
+  ebs_delete_on_termination = "${var.ebs_delete_on_termination}"
+  ebs_volume_size           = "${var.ebs_volume_size}"
+  ebs_volume_type           = "${var.ebs_volume_type}"
 }
 
 ##security group

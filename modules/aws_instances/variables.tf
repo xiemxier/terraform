@@ -17,7 +17,7 @@ variable "volume_type" {}
 variable "delete_on_termination" {}
 
 #resource ebs volume
-#variable "device_name" {}
-#variable "ebs_volume_size" {}
-#variable "ebs_volume_type" {}
-#variable "ebs_delete_on_termination" {}
+variable "device_name" {}
+variable "ebs_volume_size" {}
+variable "ebs_volume_type" {}
+variable "ebs_delete_on_termination" {}
