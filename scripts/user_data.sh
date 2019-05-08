@@ -1,4 +1,4 @@
-#!/bin/bash env
+#!/bin/bash
 yum update -y
 # Install wget, git & apache
 yum -y install httpd wget git
