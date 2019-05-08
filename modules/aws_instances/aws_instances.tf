@@ -5,10 +5,11 @@ resource "aws_instance" "test" {
   subnet_id              = "${element(var.subnet_id,count.index)}"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
-  iam_instance_profile   = "${var.iam-role}"
+  iam_instance_profile   = "${var.iam_role}"
   tags {
     Name = "${element(var.instance_tag, count.index)}"
   }
+  user_data = "${var.user_data}"
 
   root_block_device {
     volume_size           = "${var.volume_size}"

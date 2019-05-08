@@ -35,7 +35,8 @@ module "aws_instance" {
   subnet_id                 = "${module.aws_vpc.aws_subnet_id}"
   key_name                  = "${var.key_name}"
   vpc_security_group_ids    = ["${module.sg.security_group_id}"]
-  iam-role                  = "${var.iam-role}"
+  iam_role                  = "${var.iam_role}"
+  user_data                 = "${data.template_file.user-data}"
 
 #root volume
   volume_size               = "${var.volume_size}"
@@ -65,7 +66,7 @@ module "sg" {
     "0" = ["10.1.3.0/24", "80","80","tcp"]
     "1" = ["10.1.4.0/24", "80","80","tcp"]
     "2" = ["${chomp(data.http.workstation_ip.body)}/32", "22", "22", "tcp" ]
-#    "3" = ["27.74.249.220/32", "22", "22", "tcp"]
+    "3" = ["0.0.0.0/0", "80", "80", "tcp"]
   }
   outbound_cidr_blocks = {
     "0"    = ["0.0.0.0/0","0","0","-1"]

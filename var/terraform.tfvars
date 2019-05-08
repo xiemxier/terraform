@@ -35,7 +35,7 @@ aws_ami_id = "ami-76144b0a"
 instance_type = "t2.micro"
 key_name = "secomm"
 #vpc_security_group_ids = ["sg-03dd57d950c69e910"]
-iam-role = ""
+iam_role = ""
 user_data = ""
 
 instance_tags = ["web1","web2"]

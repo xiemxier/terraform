@@ -5,7 +5,8 @@ variable "instance_type" {}
 #variable "subnet_id" {}
 variable "key_name" {}
 #variable "vpc_security_group_ids" {type = "list"}
-variable "iam-role" {}
+variable "iam_role" {}
+variable "user_data" {}
 variable "instance_tags" {type = "list"}
 variable "volume_size" {}
 variable "volume_type" {}

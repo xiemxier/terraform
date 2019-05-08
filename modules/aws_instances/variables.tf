@@ -6,10 +6,11 @@ variable "instance_type" {}
 variable "subnet_id" {type = "list"}
 variable "key_name" {}
 variable "vpc_security_group_ids" {type = "list"}
-variable "iam-role" {}
+variable "iam_role" {}
 variable "instance_tag" {
   type = "list"
 }
+variable "user_data" {}
 
 #resource root volume
 variable "volume_size" {}
