@@ -36,11 +36,17 @@ module "aws_instance" {
   key_name                = "${var.key_name}"
   vpc_security_group_ids  = ["${module.sg.security_group_id}"]
   iam-role                = "${var.iam-role}"
-#volume
+  user_data               = "${data.template_file.test-user-data}"
+  tags                    = "${var.instance_tag}"
+#root volume
   volume_size             = "${var.volume_size}"
   volume_type             = "${var.volume_type}"
   delete_on_termination   = "${var.delete_on_termination}"
-
+#ebs volume
+  device_name               = "${var.device_name}"
+  ebs_volume_size           = "${var.ebs_volume_size}"
+  ebs_volume_type           = "${var.ebs_volume_type}"
+  ebs_delete_on_termination = "${var.ebs_delete_on_termination}"
 }
 ##security group
 #get ip address
@@ -55,9 +61,10 @@ module "sg" {
   environment        = "testing"
   vpc_id             = "${module.aws_vpc.vpc_id}"
   inbound_cidr_blocks      = {
-    "0" = ["10.1.3.0/24", "8140", "8140","tcp"]
-    "1" = ["10.1.4.0/24", "8140", "8140","tcp"]
+    "0" = ["10.1.3.0/24", "80", "80","tcp"]
+    "1" = ["10.1.4.0/24", "80", "80","tcp"]
     "2" = ["${chomp(data.http.workstation_ip.body)}/32", "22", "22", "tcp" ]
+    "3" = ["0.0.0.0/0", "80", "80","tcp"]
 
   }
   outbound_cidr_blocks = {
