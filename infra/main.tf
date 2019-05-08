@@ -27,21 +27,28 @@ internet_access_destination_cidr_block = "${var.internet_access_destination_cidr
 
 #aws instances
 module "aws_instance" {
-  source                  = "../modules/aws_instances"
-  instance_tag           = "${var.instance_tags}"
-  count                   = "${var.count_instance}"
-  aws_ami_id              = "${var.aws_ami_id}"
-  instance_type           = "${var.instance_type}"
-  subnet_id               = "${module.aws_vpc.aws_subnet_id}"
-  key_name                = "${var.key_name}"
-  vpc_security_group_ids  = ["${module.sg.security_group_id}"]
-  iam-role                = "${var.iam-role}"
-#volume
-  volume_size             = "${var.volume_size}"
-  volume_type             = "${var.volume_type}"
-  delete_on_termination   = "${var.delete_on_termination}"
+  source                    = "../modules/aws_instances"
+  instance_tag              = "${var.instance_tags}"
+  count                     = "${var.count_instance}"
+  aws_ami_id                = "${var.aws_ami_id}"
+  instance_type             = "${var.instance_type}"
+  subnet_id                 = "${module.aws_vpc.aws_subnet_id}"
+  key_name                  = "${var.key_name}"
+  vpc_security_group_ids    = ["${module.sg.security_group_id}"]
+  iam-role                  = "${var.iam-role}"
 
+#root volume
+  volume_size               = "${var.volume_size}"
+  volume_type               = "${var.volume_type}"
+  delete_on_termination     = "${var.delete_on_termination}"
+
+#ebs volume
+  device_name               = "${var.device_name}"
+  ebs_delete_on_termination = "${var.ebs_delete_on_termination}"
+  ebs_volume_size           = "${var.ebs_volume_size}"
+  ebs_volume_type           = "${var.ebs_volume_type}"
 }
+
 ##security group
 #get ip address
 data "http" "workstation_ip" {
