@@ -49,3 +49,30 @@ ebs_volume_size = "20"
 ebs_volume_type = "gp2"
 ebs_delete_on_termination = "true"
 #End of EC2 Instances
+
+#Elastic Load Balancer
+alb_name = "MY-ALB"
+alb_internal = "false"
+alb_idle_timeout = "60"
+alb_tags = {
+  "Name" = "Application Load Balancer"
+}
+### alb_listener ###
+alb_port_listener = "80"
+protocol_listener = "HTTP"
+#default action
+target_group_arn = ""
+alb_type = "forward"
+### alb_target_group ###
+target_group_name = "Target Group Application Load Balancer"
+alb_target_type = "instance"
+port_target_group = "8080"
+protocol_target_group = "HTTP"
+#Heath_check
+healthy_threshold = "3"
+unhealthy_threshold = "10"
+alb_timeout = "20"
+alb_interval = "30"
+alb_path = "/"
+health_port = "8080"
+#End Elastic Load Balancer

@@ -85,26 +85,29 @@ module "sg" {
 module "alb" {
   source                  = "../modules/aws_app_load_balancer"
   alb_name                = "${var.alb_name}"
-  health_port             = "${var.health_port}"
-  healthy_threshold       = "${var.healthy_threshold}"
   idle_timeout            = "${var.alb_idle_timeout}"
   internal                = "${var.alb_internal}"
-  interval                = "${var.alb_interval}"
-  load_balancer_arn       = "${var.load_balancer_arn}"
-  name                    = "${var.alb_name}"
-  path                    = "${var.alb_path}"
-  port_listener           = "${var.alb_port_listener}"
-  port_target_group       = "${var.port_target_group}"
-  protocol_listener       = "${var.protocol_listener}"
-  protocol_target_group   = "${var.port_target_group}"
   security_groups         = ["${module.sg.security_group_id}"]
   subnet_id               = ["${module.aws_vpc.aws_subnet_id}"]
   tags                    = "${var.alb_tags}"
-  target_group_arn        = "${var.target_group_arn}"
+  #alb_listener
+  load_balancer_arn       = "${module.alb.alb_arn}"
+  port_listener           = "${var.alb_port_listener}"
+  protocol_listener       = "${var.protocol_listener}"
+  #default action
+  target_group_arn        = ""
+  type                    = "${var.alb_type}"
+  #alb_target_group
+  port_target_group       = "${var.port_target_group}"
+  protocol_target_group   = "${var.port_target_group}"
   target_group_name       = "${var.target_group_name}"
   target_type             = "${var.alb_target_type}"
-  timeout                 = "${var.alb_timeout}"
-  type                    = "${var.alb_type}"
-  unhealthy_threshold     = "${var.unhealthy_threshold}"
   vpc_id                  = ["${module.aws_vpc.vpc_id}"]
+  #health_check
+  health_port             = "${var.health_port}"
+  healthy_threshold       = "${var.healthy_threshold}"
+  unhealthy_threshold     = "${var.unhealthy_threshold}"
+  timeout                 = "${var.alb_timeout}"
+  interval                = "${var.alb_interval}"
+  path                    = "${var.alb_path}"
 }
