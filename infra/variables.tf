@@ -50,9 +50,7 @@ variable "internet_access_destination_cidr_block" {}
 #Application load balancer
 variable "alb_name" {}
 variable "alb_internal" {}
-variable "alb_subnet_id" { type = "list" }
 variable "alb_tags" { type = "map" }
-variable "security_groups" { type = "list" }
 variable "alb_idle_timeout" {
   description = "The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type application. Default: 60"
   default     = 60
@@ -60,7 +58,7 @@ variable "alb_idle_timeout" {
 ###########listener#################
 variable "alb_port_listener" {}
 variable "protocol_listener" {}
-variable "load_balancer_arn" {}
+#variable "load_balancer_arn" {}
 variable "target_group_arn" {}
 variable "alb_type" {}
 ###########target-group##############
