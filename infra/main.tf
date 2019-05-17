@@ -17,8 +17,6 @@ module "aws_vpc" {
 
 #Internet gateway block
   internet_gateway_tags          = "${var.internet_gateway_tags}"
-  enable_nat_gateway             = "true"
-  single_nat_gateway             = "true"
 
 #Route table block
   route_table_tags               = "${var.route_table_tags}"
