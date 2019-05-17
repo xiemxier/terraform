@@ -6,7 +6,7 @@ module "aws_vpc" {
   vpc_instance_tenancy     = "${var.vpc_instance_tenancy}"
   vpc_enable_dns_support   = "${var.vpc_enable_dns_support}"
   vpc_enable_dns_hostnames = "${var.vpc_enable_dns_hostnames}"
-  vpc_tags                 =  "${var.vpc_tags}"
+  vpc_tags                 = "${var.vpc_tags}"
 
 #Subnet block
   count                          = "${var.count_subnet}"
@@ -17,6 +17,8 @@ module "aws_vpc" {
 
 #Internet gateway block
   internet_gateway_tags          = "${var.internet_gateway_tags}"
+  enable_nat_gateway             = "true"
+  single_nat_gateway             = "true"
 
 #Route table block
   route_table_tags               = "${var.route_table_tags}"
@@ -82,6 +84,7 @@ module "sg" {
   }
 }
 
+/*
 module "alb" {
   source                  = "../modules/aws_app_load_balancer"
   alb_name                = "${var.alb_name}"
@@ -110,4 +113,4 @@ module "alb" {
   timeout                 = "${var.alb_timeout}"
   interval                = "${var.alb_interval}"
   path                    = "${var.alb_path}"
-}
+}*/

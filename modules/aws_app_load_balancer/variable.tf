@@ -1,6 +1,6 @@
 variable "alb_name" {}
 variable "subnet_id" {
-#  type = "list"
+  type = "list"
 }
 variable "security_groups" {
   type = "list"

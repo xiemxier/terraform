@@ -15,6 +15,8 @@ variable "subnet_tags" {type = "string"}
 
 #Internet gateway block
 variable "internet_gateway_tags" {type = "string"}
+variable "enable_nat_gateway" {}
+variable "single_nat_gateway" {}
 #End Internet gateway block
 
 #Route table block
