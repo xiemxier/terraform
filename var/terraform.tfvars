@@ -30,7 +30,7 @@ internet_access_destination_cidr_block = "0.0.0.0/0"
 #End Internet access block
 
 #Start of EC2 Instances
-count_instance = 2
+count_instance = 3
 aws_ami_id = "ami-76144b0a"
 instance_type = "t2.micro"
 key_name = "secomm"
@@ -38,7 +38,7 @@ key_name = "secomm"
 iam_role = ""
 user_data = ""
 
-instance_tags = ["web1","web2"]
+instance_tags = ["web1","web2","admin"]
 #root volume
 volume_size = "30"
 volume_type = "gp2"
