@@ -66,7 +66,7 @@ alb_type = "forward"
 ### alb_target_group ###
 target_group_name = "Target Group Application Load Balancer"
 alb_target_type = "instance"
-port_target_group = "8080"
+port_target_group = "80"
 protocol_target_group = "HTTP"
 #Heath_check
 healthy_threshold = "3"
