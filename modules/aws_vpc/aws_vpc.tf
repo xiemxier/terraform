@@ -21,8 +21,6 @@ tags                      = { Name = "${var.subnet_tags}" }
 #Create Internet gateway
 resource "aws_internet_gateway" "My_VPC_GW" {
   vpc_id             = "${aws_vpc.My_VPC.id}"
-  enable_nat_gateway ="${var.enable_nat_gateway}"
-  single_nat_gateway ="${var.single_nat_gateway}"
   tags               = { Name = "${var.internet_gateway_tags}" }
 }
 #End Create Internet gateway
