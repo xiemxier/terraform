@@ -1,6 +1,6 @@
 resource "aws_alb" "alb" {
   name                  = "${var.alb_name}"
-  subnets               = "${var.subnet_id}"
+  subnets               = ["${var.subnet_id}"]
   security_groups       = ["${var.security_groups}"]
   internal              = "${var.internal}"
   idle_timeout          = "${var.idle_timeout}"
