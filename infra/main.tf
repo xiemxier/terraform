@@ -88,7 +88,7 @@ module "alb" {
   alb_name                = "${var.alb_name}"
   idle_timeout            = "${var.alb_idle_timeout}"
   internal                = "${var.alb_internal}"
-  security_groups         = ["${module.sg.security_group_id}"]
+  security_groups         = ["fwefewf","fwefewfew"]
   subnet_id               = "${module.aws_vpc.aws_subnet_id}"
   tags                    = "${var.alb_tags}"
   #alb_listener
