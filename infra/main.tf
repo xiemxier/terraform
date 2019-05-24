@@ -100,7 +100,7 @@ module "alb" {
   type                    = "${var.alb_type}"
   #alb_target_group
   port_target_group       = "${var.port_target_group}"
-  protocol_target_group   = "${var.port_target_group}"
+  protocol_target_group   = "${var.protocol_target_group}"
   target_group_name       = "${var.target_group_name}"
   target_type             = "${var.alb_target_type}"
   vpc_id                  = "${module.aws_vpc.vpc_id}"
