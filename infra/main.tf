@@ -82,14 +82,14 @@ module "sg" {
   }
 }
 
-/*
+
 module "alb" {
   source                  = "../modules/aws_app_load_balancer"
   alb_name                = "${var.alb_name}"
   idle_timeout            = "${var.alb_idle_timeout}"
   internal                = "${var.alb_internal}"
   security_groups         = ["${module.sg.security_group_id}"]
-  subnet_id               = ["${module.aws_vpc.aws_subnet_id}"]
+  subnet_id               = ["${split(",",module.aws_vpc.aws_subnet_id)}"]
   tags                    = "${var.alb_tags}"
   #alb_listener
   load_balancer_arn       = "${module.alb.alb_arn}"
@@ -111,4 +111,4 @@ module "alb" {
   timeout                 = "${var.alb_timeout}"
   interval                = "${var.alb_interval}"
   path                    = "${var.alb_path}"
-}*/
+}
