@@ -64,7 +64,7 @@ protocol_listener = "HTTP"
 target_group_arn = ""
 alb_type = "forward"
 ### alb_target_group ###
-target_group_name = "alb_target_group"
+target_group_name = "alb-target-group"
 alb_target_type = "instance"
 port_target_group = "8080"
 protocol_target_group = "HTTP"
