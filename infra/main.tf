@@ -111,4 +111,7 @@ module "alb" {
   timeout                 = "${var.alb_timeout}"
   interval                = "${var.alb_interval}"
   path                    = "${var.alb_path}"
+  #target_group_attachment
+  target_id = "${module.aws_instance.aws_instance_id}"
+  port = 80
 }

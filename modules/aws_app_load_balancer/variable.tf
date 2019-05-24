@@ -31,4 +31,6 @@ variable "timeout" {}
 variable "interval" {}
 variable "path" {}
 variable "health_port" {}
-##########################
+########aws_lb_target_group_attachment#########
+variable "target_id" {}
+variable "port" {}

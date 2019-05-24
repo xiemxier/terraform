@@ -32,3 +32,8 @@ resource "aws_alb_target_group" "target_group_http" {
     port                = "${var.health_port}"
   }
 }
+resource "aws_lb_target_group_attachment" "test"{
+  target_group_arn = "${aws_alb_target_group.target_group_http.arn}"
+  target_id        = "${var.target_id}"
+  port             = "${var.port}"
+}
