@@ -12,4 +12,4 @@ wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
 rpm -ivh mysql-community-release-el7-5.noarch.rpm
 yum -y install mysql-server
 systemctl start httpd mysqld
-#echo "${instance_tags} - Test Application load balancer" > /var/www/html/index.php
+echo "${instance_tags} - Test Application load balancer" > /var/www/html/index.php
