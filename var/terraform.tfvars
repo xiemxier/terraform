@@ -30,7 +30,7 @@ internet_access_destination_cidr_block = "0.0.0.0/0"
 #End Internet access block
 
 #Start of EC2 Instances
-count_instance = 3
+count_instance = 2
 aws_ami_id = "ami-76144b0a"
 instance_type = "t2.micro"
 key_name = "secomm"
