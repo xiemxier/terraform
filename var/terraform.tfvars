@@ -37,7 +37,7 @@ key_name = "secomm"
 iam_role = ""
 user_data = ""
 
-instance_tags = ["web1","admin","web2"]
+instance_tags = ["web1","admin"]
 #root volume
 volume_size = "30"
 volume_type = "gp2"
