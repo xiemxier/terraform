@@ -15,5 +15,5 @@ output "aws_instance_ids" {
 }
 
 output "aws_instance_tags" {
-  value = "${aws_instance.test.*.tags}"
+  value = "${element(aws_instance.test.*.tags, count.index)}"
 }
