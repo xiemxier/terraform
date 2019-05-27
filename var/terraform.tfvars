@@ -34,11 +34,10 @@ count_instance = 3
 aws_ami_id = "ami-76144b0a"
 instance_type = "t2.micro"
 key_name = "secomm"
-#vpc_security_group_ids = ["sg-03dd57d950c69e910"]
 iam_role = ""
 user_data = ""
 
-instance_tags = ["web1","web2","admin"]
+instance_tags = ["web1","admin","web2"]
 #root volume
 volume_size = "30"
 volume_type = "gp2"

@@ -1,3 +1,6 @@
 data "template_file" "user-data" {
   template = "${file("../scripts/user_data.sh")}"
+  vars = {
+    instance_tags = "${module.aws_instance.aws_instance_tags}"
+  }
 }

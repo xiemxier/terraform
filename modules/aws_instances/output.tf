@@ -13,3 +13,7 @@ output "aws_instance_single_public_ip" {
 output "aws_instance_ids" {
   value = "${aws_instance.test.*.id}"
 }
+
+output "aws_instance_tags" {
+  value = "${aws_instance.test.*.tags}"
+}
