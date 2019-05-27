@@ -112,6 +112,6 @@ module "alb" {
   interval                = "${var.alb_interval}"
   path                    = "${var.alb_path}"
   #target_group_attachment
-  target_id = "${module.aws_instance.aws_instance_id}"
-  port = 80
+  target_id               = "${element(module.aws_instance.aws_instance_id, count.index)}"
+  port                    = 80
 }
