@@ -14,7 +14,6 @@ variable "delete_on_termination" {}
 variable "device_name" {}
 variable "ebs_volume_size" {}
 variable "ebs_volume_type" {}
-variable "ebs_delete_on_termination" {}
 #End of AWS EC2 Instances
 
 #----
