@@ -45,7 +45,7 @@ module "aws_instance" {
 
 #ebs volume
   device_name               = "${var.device_name}"
-  ebs_delete_on_termination = "${var.ebs_delete_on_termination}"
+  ebs_delete_on_termination = true
   ebs_volume_size           = "${var.ebs_volume_size}"
   ebs_volume_type           = "${var.ebs_volume_type}"
 }
@@ -112,6 +112,6 @@ module "alb" {
   interval                = "${var.alb_interval}"
   path                    = "${var.alb_path}"
   #target_group_attachment
-  target_id               = "${element(module.aws_instance.aws_instance_id, count.index)}"
+  target_id               = "${module.aws_instance.aws_instance_id}"
   port                    = 80
 }

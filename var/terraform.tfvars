@@ -31,22 +31,20 @@ internet_access_destination_cidr_block = "0.0.0.0/0"
 
 #Start of EC2 Instances
 count_instance = 2
-aws_ami_id = "ami-76144b0a"
-instance_type = "t2.micro"
-key_name = "secomm"
-iam_role = ""
-user_data = ""
-
-instance_tags = ["web1","admin"]
+aws_ami_id     = "ami-76144b0a"
+instance_type  = "t2.micro"
+key_name       = "secomm"
+iam_role       = ""
+user_data      = ""
+instance_tags  = ["web1","admin"]
 #root volume
-volume_size = "30"
-volume_type = "gp2"
+volume_size           = "30"
+volume_type           = "gp2"
 delete_on_termination = "true"
 ##ebs volume
-device_name = "/dev/sdb"
+device_name     = "/dev/sdb"
 ebs_volume_size = "20"
 ebs_volume_type = "gp2"
-ebs_delete_on_termination = "true"
 #End of EC2 Instances
 
 #Elastic Load Balancer
