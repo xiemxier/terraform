@@ -33,7 +33,8 @@ resource "aws_alb_target_group" "target_group_http" {
   }
 }
 resource "aws_lb_target_group_attachment" "test"{
+  count            = 2
   target_group_arn = "${aws_alb_target_group.target_group_http.arn}"
-  target_id        = "${var.target_id}"
+  target_id        = "${element(split(",",var.target_id),count.index)}"
   port             = "${var.port}"
 }
