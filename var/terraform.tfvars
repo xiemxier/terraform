@@ -71,5 +71,5 @@ unhealthy_threshold = "10"
 alb_timeout = "20"
 alb_interval = "30"
 alb_path = "/"
-health_port = "8080"
+health_port = "80"
 #End Elastic Load Balancer
