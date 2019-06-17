@@ -3,4 +3,8 @@ output "vpc_id" {
 }
 output "aws_subnet_id" {
   value = "${aws_subnet.My_VPC_Subnet.*.id}"
+<<<<<<< HEAD
+=======
+
+>>>>>>> soulblade_phuoc
 }
